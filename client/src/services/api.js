@@ -20,7 +20,9 @@ const deleteTask = (id) => {
 
 const updateTask = (task) => {
 	return axios.put(API_URL + 'task/' + task._id, {
-		task,
+		title: task.title,
+		description: task.description,
+		location: task.location,
 	});
 };
 

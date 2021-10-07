@@ -73,8 +73,10 @@ const deleteTask = (req, res) => {
 };
 
 const updateTask = (req, res) => {
-	const taskId = req.body._id;
+	const taskId = req.params.id;
+	console.log('const taskId in updateTask', taskId);
 	const newValues = { ...req.body };
+	console.log('newValues in updateTask', newValues);
 
 	Task.updateOne({ _id: taskId }, newValues, (err, updatedTask) => {
 		if (err !== null) {
