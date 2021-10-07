@@ -11,7 +11,7 @@ const createTask = (req, res) => {
 		location: 'tasksList',
 		notDoneCount: 0,
 	});
-	console.log('task.notDoneCount: ', task.notDoneCount);
+	// console.log('task.notDoneCount: ', task.notDoneCount);
 
 	task.save((err, task) => {
 		if (err) {
