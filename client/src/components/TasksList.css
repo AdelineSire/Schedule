@@ -1,6 +1,6 @@
 .tasks-list {
 	background-color: var(--color-ter);
-	padding-bottom: 16px;
+	padding-bottom: 4px;
 	border-radius: 8px;
 	flex-grow: 1;
 	display: flex;
@@ -10,7 +10,8 @@
 }
 
 .tasks-list h2 {
-	font-size: 1em;
+	font-size: 1rem;
+	margin-bottom: 20px;
 	color: var(--color-bg);
 	font-family: var(--font-title);
 }

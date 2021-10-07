@@ -39,6 +39,7 @@
 
 .dropzone {
 	background-color: var(--color-accent);
+	border-radius: 8px;
 	width: 96%;
 	flex-grow: 1;
 }

@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 
 import TaskForm from './components/TaskForm';
-import TasksList from './components/TaskList';
+import TasksList from './components/TasksList';
 import Day from './components/Day';
 
 import getWeek from './services/getWeek';
