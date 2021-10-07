@@ -1,0 +1,56 @@
+.task {
+	background-color: var(--color-prim);
+	margin: 4px;
+	padding: 0.5rem;
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	color: var(--color-ter);
+}
+
+.delete {
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	padding: 2px;
+	margin: 2px;
+	background-color: var(--color-accent);
+	color: var(--color-sec);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.count {
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	padding: 2px;
+	margin: 2px;
+	background-color: var(--color-ter);
+	color: var(--color-sec);
+	font-size: 0.8em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.view {
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	padding: 2px;
+	margin: 2px;
+	background-color: var(--color-bg);
+	color: var(--color-sec);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.task p {
+	font-size: 0.8em;
+	flex-grow: 1;
+	text-align: left;
+}

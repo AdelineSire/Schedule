@@ -9,4 +9,19 @@ const createTask = (task) => {
 	});
 };
 
-export { createTask };
+const getTasks = () => {
+	return axios.get(API_URL + 'task');
+};
+
+const deleteTask = (id) => {
+	console.log('id in deleteTask in api', id);
+	return axios.post(API_URL + 'task/' + id);
+};
+
+const updateTask = (task) => {
+	return axios.put(API_URL + 'task/' + task._id, {
+		task,
+	});
+};
+
+export { createTask, getTasks, deleteTask, updateTask };
