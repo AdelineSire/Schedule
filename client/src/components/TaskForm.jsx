@@ -1,15 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CloseIcon from '@material-ui/icons/Close';
 
-import { createTask } from '../services/api';
+import { createTask, updateTask } from '../services/api';
 
 import './TaskForm.css';
 
-const TaskForm = ({ handleClose }) => {
+const TaskForm = ({ currentTask, handleClose }) => {
 	const [task, setTask] = useState({
 		title: '',
 		description: '',
 	});
+
+	useEffect(() => {
+		currentTask && setTask(currentTask);
+	}, []);
 
 	const handleChange = (e) => {
 		const val = e.target.value;
@@ -26,7 +30,7 @@ const TaskForm = ({ handleClose }) => {
 	};
 
 	const handleSubmit = (e) => {
-		createTask(task);
+		task._id ? updateTask(task) : createTask(task);
 	};
 
 	return (
