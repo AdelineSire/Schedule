@@ -5,7 +5,7 @@ import Task from './Task';
 
 import './Day.css';
 
-const Day = ({ day, tasks, dropped }) => {
+const Day = ({ day, tasks, dropped, removeTask }) => {
 	const [{ canDrop, isOver }, drop] = useDrop(() => ({
 		accept: ItemTypes.TASK,
 		drop: () => ({ name: day.dayDate }),
@@ -23,7 +23,12 @@ const Day = ({ day, tasks, dropped }) => {
 			<p className='day-date'>{day.dayDate}</p>
 			<div ref={drop} className={isActive ? 'dropzone highlight' : 'dropzone'}>
 				{tasks.map((task) => (
-					<Task key={task._id} task={task} dropped={dropped} />
+					<Task
+						key={task._id}
+						task={task}
+						dropped={dropped}
+						removeTask={removeTask}
+					/>
 				))}
 			</div>
 		</div>
