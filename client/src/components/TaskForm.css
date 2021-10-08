@@ -23,7 +23,7 @@
 
 .close-button {
 	width: 100px;
-	padding: 0.6em;
+	padding: 8px;
 	margin-bottom: 32px;
 	display: flex;
 	justify-content: space-around;
@@ -42,12 +42,12 @@
 
 label {
 	font-family: var(--font-title);
-	font-size: 0.8em;
 	color: var(--color-prim);
 	padding-bottom: 8px;
 }
 
 input {
+	width: 100%;
 	margin-bottom: 16px;
 	border: none;
 	border-radius: 8px;
@@ -55,16 +55,18 @@ input {
 }
 
 textarea {
+	width: 100%;
 	margin-bottom: 16px;
 	border: none;
 	border-radius: 8px;
 	font-family: var(--font-body);
+	resize: vertical;
 }
 
 .submit {
 	border: none;
 	border-radius: 8px;
-	height: 2em;
+	padding: 8px;
 	background-color: var(--color-accent);
 	color: var(--color-sec);
 }

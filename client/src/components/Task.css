@@ -1,7 +1,7 @@
 .task {
 	background-color: var(--color-prim);
 	margin: 4px;
-	padding: 0.5rem;
+	padding: 8px;
 	border-radius: 8px;
 	display: flex;
 	align-items: center;
@@ -20,6 +20,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	cursor: pointer;
 }
 
 .count {
@@ -29,7 +30,7 @@
 	padding: 2px;
 	margin: 2px;
 	background-color: var(--color-ter);
-	color: var(--color-sec);
+	color: var(--color-bg);
 	font-size: 0.8em;
 	display: flex;
 	justify-content: center;
@@ -47,10 +48,12 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	cursor: pointer;
 }
 
 .task p {
 	font-size: 0.8em;
 	flex-grow: 1;
 	text-align: left;
+	cursor: pointer;
 }
