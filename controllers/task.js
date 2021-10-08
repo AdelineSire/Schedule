@@ -11,7 +11,6 @@ const createTask = (req, res) => {
 		location: 'tasksList',
 		notDoneCount: 0,
 	});
-	// console.log('task.notDoneCount: ', task.notDoneCount);
 
 	task.save((err, task) => {
 		if (err) {
@@ -28,6 +27,27 @@ const createTask = (req, res) => {
 	});
 };
 
+const relocateTask = (id, newValues) => {
+	Task.updateOne({ _id: id }, newValues, (err, updatedTask) => {
+		if (err !== null) {
+			res.json({
+				success: false,
+				message: err.toString(),
+			});
+			return;
+		}
+
+		if (updatedTask.nModified === 0) {
+			res.json({
+				success: false,
+				message: `The task hasn't been updated.`,
+			});
+			return;
+		}
+		return updatedTask;
+	});
+};
+
 const readTasks = (req, res) => {
 	Task.find({}, (err, tasks) => {
 		if (err !== null) {
@@ -37,9 +57,36 @@ const readTasks = (req, res) => {
 			});
 			return;
 		}
-		res.json({
-			success: true,
-			data: tasks,
+		// Check if the location is before today and relocate to taskList if so.
+		const today = new Date().toLocaleString();
+		tasks.map((task) => {
+			if (task.location < today) {
+				const count = task.notDoneCount + 1;
+				relocateTask(task._id, {
+					location: 'tasksList',
+					notDoneCount: count,
+				});
+			}
+		});
+
+		Task.find({}, (err, tasks) => {
+			if (err !== null) {
+				res.json({
+					success: false,
+					message: err.toString(),
+				});
+				return;
+			}
+			if (tasks === null || undefined) {
+				res.json({
+					success: true,
+					data: [],
+				});
+			}
+			res.json({
+				success: true,
+				data: tasks,
+			});
 		});
 	});
 };
