@@ -25,13 +25,13 @@ _The task due to the day before has been relocated to the tasklist with a count 
 ![img1](/img/img1.jpg)
 
 _A click on the add button opens the modal_
-![img2](/img/img2.jpg)
+![img2](/img/Img2.jpg)
 
 _The task has been added to the task list and can be dragged to a day_
-![img3](/img/img3.jpg)
+![img3](/img/Img3.jpg)
 
 _A click on the eye icon opens the modal with the task infos to be read or updated_
-![img4](/img/img4.jpg)
+![img4](/img/Img4.jpg)
 
 ## Technologies
 
