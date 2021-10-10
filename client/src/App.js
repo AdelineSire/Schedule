@@ -6,8 +6,7 @@ import TaskForm from './components/TaskForm';
 import TasksList from './components/TasksList';
 import Day from './components/Day';
 
-import getWeek from './services/getWeek';
-import { getTasks, deleteTask, updateTask } from './services/api.js';
+import { getWeek, getTasks, deleteTask, updateTask } from './services/api.js';
 
 import './App.css';
 
@@ -17,10 +16,12 @@ function App() {
 	const [showTask, setShowTask] = useState(false);
 
 	useEffect(() => {
-		getTasks().then((response) => {
-			setTasks(response.data.data);
+		getTasks().then((res) => {
+			setTasks(res.data.data);
 		});
-		setWeek(getWeek());
+		getWeek().then((res) => {
+			setWeek(res.data.data);
+		});
 	}, []);
 
 	const handleClose = () => {

@@ -1,8 +1,11 @@
 import axios from 'axios';
 import API_URL from './config';
 
+const getWeek = () => {
+	return axios.get(API_URL + 'week');
+};
+
 const createTask = (task) => {
-	console.log('task in createTask: ', task);
 	return axios.post(API_URL + 'task', {
 		title: task.title,
 		description: task.description,
@@ -14,7 +17,6 @@ const getTasks = () => {
 };
 
 const deleteTask = (id) => {
-	console.log('id in deleteTask in api', id);
 	return axios.post(API_URL + 'task/' + id);
 };
 
@@ -23,7 +25,8 @@ const updateTask = (task) => {
 		title: task.title,
 		description: task.description,
 		location: task.location,
+		notDoneCount: task.notDoneCount,
 	});
 };
 
-export { createTask, getTasks, deleteTask, updateTask };
+export { getWeek, createTask, getTasks, deleteTask, updateTask };

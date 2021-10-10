@@ -27,10 +27,11 @@ mongoose
 	});
 
 // Controllers
-const { task } = require('./controllers');
+const { task, getWeek } = require('./controllers');
 
 // Routes
 app.use('/task', task);
+app.use('/week', getWeek);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 3002;
