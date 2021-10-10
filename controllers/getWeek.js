@@ -1,3 +1,6 @@
+const express = require('express');
+const router = express.Router();
+
 const convertDay = (num) => {
 	const days = [
 		'Dimanche',
@@ -11,7 +14,7 @@ const convertDay = (num) => {
 	return days[num];
 };
 
-const getWeek = () => {
+const getWeek = (req, res) => {
 	const days = [];
 	for (let i = 0; i < 7; i++) {
 		const newDay = new Date();
@@ -22,7 +25,11 @@ const getWeek = () => {
 		};
 		days.push(day);
 	}
-	return days;
+	res.json({
+		success: true,
+		data: days,
+	});
 };
 
-export default getWeek;
+router.route('/').get(getWeek);
+module.exports = router;
