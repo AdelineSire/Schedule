@@ -7,13 +7,16 @@ import './TaskForm.css';
 
 const TaskForm = ({ currentTask, handleClose }) => {
 	const [task, setTask] = useState({
+		_id: null,
+		location: null,
+		notDoneCount: null,
 		title: '',
 		description: '',
 	});
 
 	useEffect(() => {
 		currentTask && setTask(currentTask);
-	}, []);
+	}, [currentTask]);
 
 	const handleChange = (e) => {
 		const val = e.target.value;
@@ -29,7 +32,7 @@ const TaskForm = ({ currentTask, handleClose }) => {
 		}
 	};
 
-	const handleSubmit = (e) => {
+	const handleSubmit = () => {
 		task._id ? updateTask(task) : createTask(task);
 	};
 
