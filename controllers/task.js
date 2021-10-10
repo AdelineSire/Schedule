@@ -3,7 +3,7 @@ const router = express.Router();
 
 const { Task } = require('../models');
 
-const createTask = async (req, res) => {
+const createTask = (req, res) => {
 	const newTask = req.body;
 	const task = new Task({
 		title: newTask.title,
@@ -12,7 +12,7 @@ const createTask = async (req, res) => {
 		notDoneCount: 0,
 	});
 
-	await task
+	task
 		.save(task)
 		.then((res) =>
 			res.json({
@@ -48,7 +48,7 @@ const relocate = async () => {
 
 const readTasks = async (req, res) => {
 	await relocate();
-	await Task.find({})
+	Task.find({})
 		.then((tasks) => {
 			if (tasks === null || tasks === undefined) {
 				res.json({
@@ -70,9 +70,9 @@ const readTasks = async (req, res) => {
 		});
 };
 
-const deleteTask = async (req, res) => {
+const deleteTask = (req, res) => {
 	const taskId = req.params.id;
-	await Task.deleteOne({ _id: taskId })
+	Task.deleteOne({ _id: taskId })
 		.then((deletedTask) => {
 			if (deletedTask.deletedCount === 0) {
 				res.json({
@@ -96,11 +96,11 @@ const deleteTask = async (req, res) => {
 		});
 };
 
-const updateTask = async (req, res) => {
+const updateTask = (req, res) => {
 	const taskId = req.params.id;
 	const newValues = { ...req.body };
 
-	await Task.updateOne({ _id: taskId }, newValues)
+	Task.updateOne({ _id: taskId }, newValues)
 		.then((updatedTask) => {
 			if (updatedTask.modifiedCount === 0) {
 				res.json({
