@@ -26,7 +26,10 @@ const Task = ({ task, dropped, removeTask }) => {
 	};
 
 	return (
-		<div ref={drag} className={isDragging ? 'task highlight' : 'task'}>
+		<div
+			ref={showTask ? null : drag}
+			className={isDragging ? 'task highlight' : 'task'}
+		>
 			<p>{task.title}</p>
 			{task.notDoneCount !== 0 && (
 				<div className='count'>{task.notDoneCount}</div>
